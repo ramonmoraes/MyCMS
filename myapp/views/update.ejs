@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/cms.css' />
+    <!-- <script src='/javascripts/myscript.js'></script> -->
+  </head>
+  <body>
+    <a href="..">back</a>
+    <form class="newpost" action="/easycms/update_post" method="post" autocomplete="off">
+      <h3>Atualizar Post</h3>
+      <p>O titulo não pode ser editado</p>
+      <input class='input'  type="text" readonly name="titulo" placeholder='Titulo' value='<%=post.titulo%>' >
+      <input class='input'  type="text" name="tags" placeholder='tags' value='<%=post.tags%>'>
+      <textarea class='input'  name="resumo" placeholder="Resumo" ><%=post.resumo%></textarea>
+      <textarea  class='input' name="conteudo" placeholder="Conteudo" ><%=post.conteudo%></textarea>
+
+      <div class="btn_wrap">
+        <input type="reset" value="Resetar Campos" class='btn'>
+        <input type="submit" value="Update Post" class='btn'>
+      </div>
+    </form>
+
+
+  </body>
+</html>

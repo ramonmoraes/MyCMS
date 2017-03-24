@@ -14,10 +14,11 @@
       </div>
       <div class="content">
         <div id="texto">
-            <%for(var i=0;i<post.length;i++){%>
+          <%for(var i=0;i<post.length;i++){%>
               <%if(post[i].titulo!=null){%>
                 <div class="box_post">
-                  <%var urlpost='/easycms/post/?p='+ post[i].titulo;%>
+                  <%var titulo_split=post[i].titulo.split(" ").join("+")%>
+                  <%var urlpost='/easycms/post/?titulo='+ titulo_split;%>
                     <a href=<%=urlpost%> >  <%=post[i].titulo%></a>
                     <%=post[i].tags%>
                     <p><%=post[i].resumo%></p>
