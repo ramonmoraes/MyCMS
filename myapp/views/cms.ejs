@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/cms.css' />
+    <script src='/javascripts/myscript.js'></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="menu_top">
+        <a href="#"><div class="btn_menu" onclick="new_post()">New Post</div></a>
+        <a href="#"><div class="btn_menu" onclick="show_posts()">Todos Posts</div></a>
+        <a href="#"><div class="btn_menu">Tal e etc</div></a>
+      </div>
+      <div class="content">
+        <div id="texto">
+            <%for(var i=0;i<post.length;i++){%>
+              <%if(post[i].titulo!=null){%>
+                <div class="box_post">
+                  <%var urlpost='/easycms/post/?p='+ post[i].titulo;%>
+                    <a href=<%=urlpost%> >  <%=post[i].titulo%></a>
+                    <%=post[i].tags%>
+                    <p><%=post[i].resumo%></p>
+                </div>
+              <%}%>
+            <%}%>
+        </div>
+      <div id="newpost">
+        <form class="newpost" action="/easycms/newpost" method="post">
+          <h3>Novo Post</h3>
+          <input class='input'  type="text" name="titulo" placeholder='Titulo'>
+          <input class='input'  type="text" name="tags" placeholder='tags'>
+          <textarea class='input'  name="resumo" placeholder="Resumo"></textarea>
+          <textarea  class='input' name="conteudo" placeholder="Conteudo"></textarea>
+          <div class="btn_wrap">
+            <input type="reset" value="Resetar Campos" class='btn'>
+            <input type="submit" value="Postar" class='btn'>
+          </div>
+        </form>
+      </div>
+      </div>
+    </div>
+  </body>
+</html>

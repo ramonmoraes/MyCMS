@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/cms.css' />
+  </head>
+  <body>
+    <div class="flex_center">
+      <div class="box">
+        <form class='input' action="/easycms/login" method="post" autocomplete="off">
+          <h3>Easy CMS Login</h3>
+          <input type="text" name="username" placeholder="Usuario">
+          <input type="text" name="password" placeholder="Senha">
+          <div class="btn_wrap">
+            <input type="submit" class='btn' value="Entrar">
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
