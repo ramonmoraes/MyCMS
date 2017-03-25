@@ -32,6 +32,7 @@ function updatePost(body){
 
 }
 
+
 module.exports ={
   newPost : function(body){
     newPost(body);

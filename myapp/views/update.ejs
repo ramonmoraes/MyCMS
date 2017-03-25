@@ -4,10 +4,13 @@
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/cms.css' />
     <!-- <script src='/javascripts/myscript.js'></script> -->
+    <meta name="viewport" content="width=device-width, inicial-scale=1.0" =>
   </head>
   <body>
-    <a href="..">back</a>
+
+    <div id='posts'>
     <form class="newpost" action="/easycms/update_post" method="post" autocomplete="off">
+      <h3><a href="..">Voltar</a></h3>
       <h3>Atualizar Post</h3>
       <p>O titulo não pode ser editado</p>
       <input class='input'  type="text" readonly name="titulo" placeholder='Titulo' value='<%=post.titulo%>' >
@@ -21,6 +24,7 @@
       </div>
     </form>
 
+  </div>
 
   </body>
 </html>

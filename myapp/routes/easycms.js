@@ -9,8 +9,8 @@ router.get('/', function(req, res, next) {
 
 router.post('/login', function(req, res, next) {
   auth.login(req.body, function(user){
-    if (res==null){
-      res.send("Errou o login");
+    if (user==null){
+      res.render('cms_log', {title:'errou log'})
     }else{
     blog.listPost(function(posts){
       res.render('cms', {post:posts, title:'adm'})

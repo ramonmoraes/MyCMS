@@ -4,25 +4,26 @@
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/cms.css' />
     <script src='/javascripts/myscript.js'></script>
+    <meta name="viewport" content="width=device-width, inicial-scale=1.0" =>
   </head>
   <body>
-    <div class="container">
-      <div class="menu_top">
+    <!-- <div class="container">
+      <div class="box menu_top">
         <a href="#"><div class="btn_menu" onclick="new_post()">New Post</div></a>
         <a href="#"><div class="btn_menu" onclick="show_posts()">Todos Posts</div></a>
         <a href="#"><div class="btn_menu">Tal e etc</div></a>
       </div>
-      <div class="content">
-        <div id="texto">
+      <div class="box ">
+        <div id="posts">
           <%for(var i=0;i<post.length;i++){%>
               <%if(post[i].titulo!=null){%>
-                <div class="box_post">
                   <%var titulo_split=post[i].titulo.split(" ").join("+")%>
                   <%var urlpost='/easycms/post/?titulo='+ titulo_split;%>
-                    <a href=<%=urlpost%> >  <%=post[i].titulo%></a>
-                    <%=post[i].tags%>
-                    <p><%=post[i].resumo%></p>
-                </div>
+                <a class='link_box' href=<%=urlpost%> >    <div class="box_post">
+                    <p class='titulo'><%=post[i].titulo%></p>
+                    <p class='tag'><%=post[i].tags%></p>
+                    <p class="resumo"><%=post[i].resumo%></p>
+                </div></a>
               <%}%>
             <%}%>
         </div>
@@ -40,6 +41,18 @@
         </form>
       </div>
       </div>
+    </div> -->
+    <div class='container'>
+      <div class='selecao'>
+        <div class="posts">
+
+        </div>
+        <div class="novo_post">
+
+        </div>
+      </div>
+    </div>
+
     </div>
   </body>
 </html>

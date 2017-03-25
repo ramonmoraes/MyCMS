@@ -3,13 +3,29 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <meta name="viewport" content="width=device-width, inicial-scale=1.0" =>
   </head>
   <body>
-<a href="/easycms">Easy CMS!</a>
-<form action="/teste" method="get">
-  <input type="text" name="valor1" placeholder="valor1">
-  <input type="text" name="valor2" placeholder="valor2">
-  <input type="submit" value="Enviar">
-</form>
+    <div class="container colum center">
+      <div class="head">
+
+      </div>
+      <div class="container scroll">
+<div class="menu">
+<div class="btn">Butão</div>
+<div class="btn">Butão</div>
+<div class="btn">Butão</div>
+<div class="btn">Butão</div>
+</div>
+<div class="posts">
+  <%for(var i=0;i<post.length;i++){%>
+    <div class='box_post'>
+      <h3><%=post[i].titulo%></h3>
+      <p><%=post[i].conteudo%></p>
+    </div>
+    <%}%>
+    </div>
+      </div>
+    </div>
   </body>
 </html>
