@@ -35,7 +35,6 @@ function loginCorrect(body, callback){
 
 function hadCookie(cookie, callback){
   //Verificar pelo req.cookies se o usuario ja estava logado
-  console.log(typeof(cookie));
   User.findOne({'_id':cookie}, function(err, res){
     if(res==null){
       aviso('sem cookie');
@@ -43,16 +42,15 @@ function hadCookie(cookie, callback){
     }else{
       cookie_res = {
         username : res.username,
-        segredo : res.segredo,
-        projetos : res.projetos
-      }
+        privilegio: res.privelegio
+              }
+        // console.log(res);
       callback(cookie_res);
     }
   })
 }
 
 function aviso(str){
-  console.log(str);
   return str;
 }
 

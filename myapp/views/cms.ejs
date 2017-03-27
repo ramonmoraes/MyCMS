@@ -3,56 +3,62 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/cms.css' />
-    <script src='/javascripts/myscript.js'></script>
+    <script src='/javascripts/ajax_blog.js'></script>
     <meta name="viewport" content="width=device-width, inicial-scale=1.0" =>
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Slabo+27px" rel="stylesheet">
+
   </head>
-  <body>
-    <!-- <div class="container">
-      <div class="box menu_top">
-        <a href="#"><div class="btn_menu" onclick="new_post()">New Post</div></a>
-        <a href="#"><div class="btn_menu" onclick="show_posts()">Todos Posts</div></a>
-        <a href="#"><div class="btn_menu">Tal e etc</div></a>
-      </div>
-      <div class="box ">
-        <div id="posts">
+
+  <body class='cor1'>
+<%=JSON.stringify(user)%>
           <%for(var i=0;i<post.length;i++){%>
               <%if(post[i].titulo!=null){%>
                   <%var titulo_split=post[i].titulo.split(" ").join("+")%>
                   <%var urlpost='/easycms/post/?titulo='+ titulo_split;%>
-                <a class='link_box' href=<%=urlpost%> >    <div class="box_post">
-                    <p class='titulo'><%=post[i].titulo%></p>
-                    <p class='tag'><%=post[i].tags%></p>
-                    <p class="resumo"><%=post[i].resumo%></p>
-                </div></a>
+
               <%}%>
             <%}%>
-        </div>
-      <div id="newpost">
-        <form class="newpost" action="/easycms/newpost" method="post">
-          <h3>Novo Post</h3>
-          <input class='input'  type="text" name="titulo" placeholder='Titulo'>
-          <input class='input'  type="text" name="tags" placeholder='tags'>
-          <textarea class='input'  name="resumo" placeholder="Resumo"></textarea>
-          <textarea  class='input' name="conteudo" placeholder="Conteudo"></textarea>
-          <div class="btn_wrap">
-            <input type="reset" value="Resetar Campos" class='btn'>
-            <input type="submit" value="Postar" class='btn'>
-          </div>
-        </form>
-      </div>
-      </div>
-    </div> -->
+
     <div class='container'>
       <div class='selecao'>
-        <div class="posts">
+        <div class="lista_post">
+          <%var aux=post.length-1%>
 
+          <%for(aux;aux>0;aux--){%>
+            <%if(post[aux].titulo!=null){%>
+              <%var titulo_split=post[aux].titulo.split(" ").join("+")%>
+              <%var urlpost='http://localhost:3000/easycms/post/?titulo='+ titulo_split;%>
+
+            <div onclick=lerPost('<%=urlpost%>') class="mini_post cor3">
+              <h4 class='cor2'><%=post[aux].titulo%></h4>
+              <p><%=post[aux].resumo%></p>
+            </div>
+
+            <%}%>
+            <%}%>
         </div>
-        <div class="novo_post">
-
+        <div onclick='criarNovoPost()' class="novo_post cor2 flex_center"><h3>Novo Post!</h3>
         </div>
       </div>
-    </div>
+      <div class="conteudo cor3">
+        <div id="post_area">
+          <form class='form' id="post_form" action="/easycms/update_post" method="post" autocomplete="off">
+            <h3 id='comando'></h3>
+            <p id='obs'></p>
+            <input class='input' id='titulo' type="text" readonly name="titulo" placeholder='Titulo' value='<%=post.titulo%>' >
+            <input class='input' id='tag' type="text" name="tags" placeholder='tags' value='<%=post.tags%>'>
+            <textarea class='input' id='resumo'  name="resumo" placeholder="Resumo" ><%=post.resumo%></textarea>
+            <textarea  class='input' id='conteudo' name="conteudo" placeholder="Conteudo" ><%=post.conteudo%></textarea>
 
-    </div>
+            <div class="btn_wrap">
+              <input type="reset" value="Resetar Campos" class='btn'>
+              <input type="submit" id='enviar' value="Update Post" class='btn'>
+              <a id='deletar' class="btn">!!!! DELETAR!!!!</a>
+            </div>
+          </form>
+        </div>
+      </div>
+      </div>
+
   </body>
 </html>

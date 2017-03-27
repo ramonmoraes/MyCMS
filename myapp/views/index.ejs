@@ -18,7 +18,8 @@
 <div class="btn">Butão</div>
 </div>
 <div class="posts">
-  <%for(var i=0;i<post.length;i++){%>
+  <%var i=post.length-1%>
+  <%for(i;i>0;i--){%>
     <div class='box_post'>
       <h3><%=post[i].titulo%></h3>
       <p><%=post[i].conteudo%></p>
