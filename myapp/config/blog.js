@@ -34,7 +34,7 @@ function updatePost(body){
 
 
 function deletePost(titulo){
-    Post.remove({titulo:titulo}, function(err){
+    Post.deleteOne({titulo:titulo}, function(err){
       if(err){
         console.log('deu error no titulo');
       }
