@@ -7,6 +7,9 @@
 .box_login{ background-color: #96ceb4;  padding: 2vmax;  margin: 1vmax;}
 .btn_wrap{ display: flex; align-content: center;align-self: center; }
 .btn_wrap .btn{padding:3px;margin: 3px;}
+.btn{border: 1px solid #ffa500; padding:5px;border-radius: 5px;font-size: 1.15em;background-color: #444;color: white;font-weight: bold;}
+.btn:hover{position: relative; top: -5px;transition: 0.8s;box-shadow: 0px 3px 5px 0 #444;}
+.war{color: white; background-color: red;border: none;}
 /*------------ LOGIN ---------------*/
 .cor1{background-color:	#444444 }
 .cor2{background-color:	#ffa500 }
